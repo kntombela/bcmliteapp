@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.bcmliteapp.fragments.SelectResourceFragment">
+
+
+    <ImageView
+        android:id="@+id/img_resource_applications"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="40dp"
+        android:contentDescription="@string/plan_resource_applications"
+        android:src="@drawable/ic_applications"
+        app:layout_constraintEnd_toEndOf="@+id/lbl_resource_applications"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="@+id/lbl_resource_applications"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lbl_resource_applications"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="@string/plan_resource_applications"
+        app:layout_constraintEnd_toEndOf="@+id/img_resource_equipment"
+        app:layout_constraintStart_toStartOf="@+id/img_resource_equipment"
+        app:layout_constraintTop_toBottomOf="@+id/img_resource_applications" />
+
+    <ImageView
+        android:id="@+id/img_resource_documents"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="40dp"
+        android:contentDescription="@string/plan_resource_documents"
+        android:src="@drawable/ic_documents"
+        app:layout_constraintEnd_toEndOf="@+id/lbl_resource_documents"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="@+id/lbl_resource_documents"
+        app:layout_constraintTop_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/lbl_resource_documents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="@string/plan_resource_documents"
+        app:layout_constraintEnd_toEndOf="@+id/img_resource_workarea"
+        app:layout_constraintStart_toStartOf="@+id/img_resource_workarea"
+        app:layout_constraintTop_toBottomOf="@+id/img_resource_documents" />
+
+    <ImageView
+        android:id="@+id/img_resource_workarea"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="40dp"
+        android:contentDescription="@string/resource_workarea"
+        android:src="@drawable/ic_building"
+        app:layout_constraintEnd_toEndOf="@+id/lbl_resource_workarea"
+        app:layout_constraintStart_toStartOf="@+id/lbl_resource_workarea"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_resource_documents" />
+
+    <TextView
+        android:id="@+id/lbl_resource_workarea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="@string/resource_workarea"
+        app:layout_constraintEnd_toEndOf="@+id/img_resource_third_parties"
+        app:layout_constraintStart_toStartOf="@+id/img_resource_third_parties"
+        app:layout_constraintTop_toBottomOf="@+id/img_resource_workarea" />
+
+    <ImageView
+        android:id="@+id/img_resource_equipment"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="40dp"
+        android:contentDescription="@string/plan_resource_equipments"
+        android:src="@drawable/ic_equipment"
+        app:layout_constraintEnd_toEndOf="@+id/lbl_resource_equipment"
+        app:layout_constraintStart_toStartOf="@+id/lbl_resource_equipment"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_resource_applications" />
+
+    <TextView
+        android:id="@+id/lbl_resource_equipment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="@string/plan_resource_equipments"
+        app:layout_constraintEnd_toEndOf="@+id/img_resource_skills"
+        app:layout_constraintStart_toStartOf="@+id/img_resource_skills"
+        app:layout_constraintTop_toBottomOf="@+id/img_resource_equipment" />
+
+    <ImageView
+        android:id="@+id/img_resource_skills"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="40dp"
+        android:contentDescription="@string/plan_resource_skills"
+        android:src="@drawable/ic_skills"
+        app:layout_constraintEnd_toEndOf="@+id/lbl_resource_skills"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="@+id/lbl_resource_skills"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_resource_equipment" />
+
+    <TextView
+        android:id="@+id/lbl_resource_skills"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="@string/plan_resource_skills"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_resource_skills" />
+
+    <ImageView
+        android:id="@+id/img_resource_third_parties"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="40dp"
+        android:contentDescription="@string/plan_resource_suppliers"
+        android:src="@drawable/ic_third_party"
+        app:layout_constraintEnd_toEndOf="@+id/lbl_resource_third_parties"
+        app:layout_constraintStart_toStartOf="@+id/lbl_resource_third_parties"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_resource_workarea" />
+
+
+    <TextView
+        android:id="@+id/lbl_resource_third_parties"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="80dp"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="@string/plan_resource_suppliers"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_resource_third_parties" />
+
+</android.support.constraint.ConstraintLayout>

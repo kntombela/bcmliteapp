@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/list_item_two_line">
+
+    <TextView
+        android:id="@+id/txt_resource_name"
+        style="@style/listTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_vertical_margin"
+        android:text="@string/resource_name"
+        app:layout_constraintEnd_toStartOf="@+id/txt_resource_rto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txt_resource_rto" />
+
+    <TextView
+        android:id="@+id/txt_resource_description"
+        style="@style/listSubTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_vertical_margin"
+        android:text="@string/resource_description"
+        app:layout_constraintEnd_toStartOf="@+id/txt_resource_rto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_resource_name" />
+
+    <TextView
+        android:id="@+id/txt_resource_rto"
+        style="@style/listAdditionalInfoRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/activity_vertical_margin"
+        android:layout_marginTop="16dp"
+        android:text="@string/resource_rto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

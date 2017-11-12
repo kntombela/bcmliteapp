@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/activity_horizontal_margin"
+    android:layout_marginLeft="@dimen/activity_vertical_margin"
+    android:layout_marginRight="@dimen/activity_vertical_margin"
+    android:layout_marginTop="@dimen/activity_horizontal_margin"
+    tools:context="com.example.android.bcmliteapp.StepDetailActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/spn_step_detail_assign"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Spinner
+                android:id="@+id/spn_step_detail_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txt_step_detail_summary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/step_summary"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline" />
+
+        <TextView
+            android:id="@+id/txt_step_detail_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:text="@string/step_detail"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+        <EditText
+            android:id="@+id/txt_step_detail_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:gravity="top"
+            android:hint="@string/step_comment"
+            android:inputType="textMultiLine" />
+    </LinearLayout>
+
+</RelativeLayout>

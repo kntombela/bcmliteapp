@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ab_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:gravity="center">
+
+    <Button
+        android:id="@+id/btn_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorTransparent"
+        android:drawableTop="@drawable/ic_home_normal"
+        android:paddingTop="16dp" />
+
+    <Button
+        android:id="@+id/btn_plans"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorTransparent"
+        android:drawableTop="@drawable/ic_plans_normal"
+        android:paddingTop="16dp" />
+
+    <Button
+        android:id="@+id/btn_resources"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorTransparent"
+        android:drawableTop="@drawable/ic_resources"
+        android:paddingTop="16dp" />
+
+    <Button
+        android:id="@+id/btn_glossary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorTransparent"
+        android:drawableTop="@drawable/ic_glossary"
+        android:paddingTop="16dp" />
+
+</android.support.v7.widget.Toolbar>

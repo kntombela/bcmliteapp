@@ -1,0 +1,144 @@
+<resources>
+    <string name="app_name">BCMLite</string>
+
+    <!-- App Strings -->
+    <string name="appbar_scrolling_view_behavior">
+        android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="list_options">&#8942;</string>
+
+    <!-- TODO: Place Fragment names here -->
+
+    <!--Actions Strings-->
+    <string name="action_view">View</string>
+    <string name="action_share">Share</string>
+    <string name="action_details">Details</string>
+    <string name="action_resources">Resources</string>
+    <string name="action_assign">Assign</string>
+    <string name="action_save">Save</string>
+    <string name="action_home">Home</string>
+    <string name="action_plans">Plans</string>
+    <string name="action_glossary">Glossary</string>
+    <string name="action_governance">Governance</string>
+    <string name="action_settings">Settings</string>
+
+    <!--Error Strings-->
+    <string name="err_required_fields">Error: Field cannot be empty</string>
+
+    <!--Title Strings-->
+    <string name="title_required_fields">* Required fields</string>
+
+    <!--Hint Strings-->
+
+
+    <!-- Plan Strings -->
+    <string name="plan_name">Plan Name</string>
+    <string name="plan_type">Plan Type</string>
+    <string name="plan_description">This plan caters for the management and
+        communication aspects relating to an Incident which renders the
+        organisation’s operations inoperable."
+    </string>
+    <string name="plan_image">Plan Image</string>
+    <string name="plan_count"># Departments</string>
+    <string name="plan_action_share">SHARE</string>
+    <string name="plan_action_view">VIEW</string>
+    <string name="plan_department">Department</string>
+    <string name="plan_RTO">24 hrs</string>
+    <string name="plan_processes">Processes</string>
+    <string name="plan_steps">Steps</string>
+
+    <string name="plan_resource_skills">Skills</string>
+    <string name="plan_resource_suppliers">Suppliers</string>
+    <string name="plan_resource_documents">Documents</string>
+    <string name="plan_resource_equipments">Equipments</string>
+    <string name="plan_resource_applications">Applications</string>
+
+    <!-- Process Strings -->
+    <string name="process_number">P1</string>
+    <string name="process_name">Process Name</string>
+    <string name="process_description">Description of what the process is.</string>
+    <string name="process_rto">24 Hours</string>
+    <string name="dialog_process_label_title">@string/action_details</string>
+
+    <string name="dialog_process_label_name">Name: </string>
+    <string name="dialog_process_label_description">Description: </string>
+    <string name="dialog_process_label_critical_time">CriticalTime: </string>
+    <string name="dialog_process_label_sop">SOP:</string>
+    <string name="dialog_process_label_sla">SLA:</string>
+    <string name="dialog_process_label_rto">RTO:</string>
+    <string name="dialog_process_label_mbco">MBCO:</string>
+    <string name="dialog_process_label_operational_impact">Operational Impact: </string>
+    <string name="dialog_process_label_financial_impact">Financial Impact:</string>
+    <string name="dialog_process_label_staff_compliment">Staff Compliment:</string>
+    <string name="dialog_process_label_staff_comp_desc">Staff Compliment Description:</string>
+    <string name="dialog_process_label_revised_ops_level">Revised Operational Level:</string>
+    <string name="dialog_process_label_revised_ops_level_desc">Revised Operational Level Description:</string>
+    <string name="dialog_process_label_remote_working">Remote Working:</string>
+    <string name="dialog_process_label_site_dependent">Site Dependent:</string>
+
+    <string name="dialog_process_value_name">Process Name</string>
+    <string name="dialog_process_value_description">Process Description</string>
+    <string name="dialog_process_value_critical_time">Month end</string>
+    <string name="dialog_process_value_sop">8</string>
+    <string name="dialog_process_value_sla">Yes</string>
+    <string name="dialog_process_value_rto">24 Hours</string>
+    <string name="dialog_process_value_mbco">50%</string>
+    <string name="dialog_process_value_operational_impact">Critical</string>
+    <string name="dialog_process_value_financial_impact">Moderate</string>
+    <string name="dialog_process_value_staff_compliment">12</string>
+    <string name="dialog_process_value_staff_comp_desc">Permanent</string>
+    <string name="dialog_process_value_revised_ops_level">6</string>
+    <string name="dialog_process_value_revised_ops_level_desc">Can operate at 50% capacity</string>
+    <string name="dialog_process_value_remote_working">Yes</string>
+    <string name="dialog_process_value_site_dependent">No</string>
+
+    <!-- Step Strings -->
+    <string name="step_number">S1</string>
+    <string name="step_title">Step 1 Title</string>
+    <string name="step_summary">Step 1 summary actions to be performed and possible other details</string>
+    <string name="step_detail">\nA more detailed description of each and every action to be taken by
+            whom, when and how the actions is to be performed. When a step is opened the menu item
+            will list the applicable resources available to the that step. This includes external
+            urls and other mobile applications such as the
+            contact list and Whatsapp.
+    </string>
+    <string name="step_comment">Comment</string>
+
+    <!-- Navigation Drawer Items  -->
+    <string name="navigation_drawer_open">open drawer</string>
+    <string name="navigation_drawer_close">close drawer</string>
+
+    <string name="nav_item_home">@string/action_home</string>
+    <string name="nav_item_plans">@string/action_plans</string>
+    <string name="nav_item_team">Team</string>
+    <string name="nav_item_resources">@string/action_resources</string>
+    <string name="nav_item_governance">@string/action_governance</string>
+    <string name="nav_item_glossary">@string/action_glossary</string>
+    <string name="nav_item_feedback">Feedback</string>
+    <string name="nav_item_settings">@string/action_settings</string>
+    <string name="user_name">Keketso Ntombela</string>
+    <string name="user_email">keketso@digitalperspective.co.za</string>
+
+    <!--Report Incident String-->
+    <string name="report_incident">Report Incident</string>
+    <string name="incident_location">Location (optional)</string>
+    <string name="incident_date">Date *</string>
+    <string name="incident_description">Description *</string>
+    <string name="incident_time">Time *</string>
+    <string name="incident_type">Type *</string>
+
+    <string-array name="spinner_incident_type">
+        <item>Building &amp; Facility</item>
+        <item>Health &amp; Safety</item>
+        <item>Security</item>
+        <item>Information Technology</item>
+        <item>Other</item>
+    </string-array>
+
+    <!--Resource Strings-->
+    <string name="resource_name">Resource Name</string>
+    <string name="resource_description">Description of what the resource is about.</string>
+    <string name="resource_rto"># Period</string>
+    <string name="resource_workarea">Workarea</string>
+
+
+</resources>

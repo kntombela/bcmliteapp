@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Shared dimensions -->
+    <dimen name="text_left_and_right_padding">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_horizontal_margin">8dp</dimen>
+
+    <!--Icon dimensions-->
+    <dimen name="icon_diameter_dense">32dp</dimen>
+    <dimen name="icon_diameter">40dp</dimen>
+
+    <!-- Card text dimensions -->
+    <dimen name="card_title">24sp</dimen>
+    <dimen name="card_title_top_padding">24dp</dimen>
+    <dimen name="card_title_bottom_padding">12dp</dimen>
+
+    <dimen name="card_subtitle">14sp</dimen>
+    <dimen name="card_subtitle_bottom_padding">16dp</dimen>
+
+    <dimen name="card_content">14sp</dimen>
+    <dimen name="card_content_top_padding">16dp</dimen>
+    <dimen name="card_content_bottom_padding">16dp</dimen>
+
+    <dimen name="card_action_padding">8dp</dimen>
+
+    `
+    <dimen name="nav_drawer_width">280dp</dimen>
+    <dimen name="btn_right_margin">8dp</dimen>
+
+    <!-- List dimensions -->
+    <dimen name="list_item_three_line">88dp</dimen>
+    <dimen name="list_item_three_line_dense">76dp</dimen>
+    <dimen name="list_item_two_line">72dp</dimen>
+    <dimen name="list_item_two_line_dense">60dp</dimen>
+    <dimen name="list_item_title">16sp</dimen>
+    <dimen name="list_item_subtitle">14sp</dimen>
+    <dimen name="list_item_icon">40dp</dimen>
+    <dimen name="list_item_subtitle_dense">11sp</dimen>
+    <dimen name="list_item_title_dense">13sp</dimen>
+    <dimen name="list_item_text_margin">72dp</dimen>
+    <dimen name="list_item_options_width">32dp</dimen>
+    <dimen name="list_item_additional_info_text_size_dense">10sp</dimen>
+    <dimen name="nav_header_height">150dp</dimen>
+    <dimen name="nav_header_vertical_spacing">4dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+</resources>

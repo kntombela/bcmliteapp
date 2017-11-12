@@ -1,0 +1,124 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccentDark</item>
+        <item name="android:textColorPrimary">@color/colorPrimaryText</item>
+        <!--<item name="android:textColorHighlight">@color/colorAccent</item>-->
+        <!--<item name="android:windowBackground">@color/colorWhite</item>-->
+        <!--<item name="colorControlActivated">@color/colorAccentDark</item>-->
+        <!--<item name="colorControlHighlight">@color/colorAccentDark</item>-->
+    </style>
+
+    <!-- Style for appbar text. -->
+    <style name="appBarExpanded" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">34sp</item>
+        <item name="android:textColor">@color/colorPrimaryTextLight</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="appBarCollapsed" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/colorPrimaryTextLight</item>
+    </style>
+
+    <!-- Card style -->
+    <style name="card">
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
+    <style name="cardTitle" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">@dimen/card_title</item>
+        <item name="android:paddingTop">@dimen/card_title_top_padding</item>
+        <item name="android:paddingLeft">@dimen/text_left_and_right_padding</item>
+        <item name="android:paddingRight">@dimen/text_left_and_right_padding</item>
+    </style>
+
+    <style name="cardSubTitle">
+        <item name="android:textSize">@dimen/card_subtitle</item>
+        <item name="android:paddingLeft">@dimen/text_left_and_right_padding</item>
+        <item name="android:paddingRight">@dimen/text_left_and_right_padding</item>
+        <item name="android:paddingBottom">@dimen/card_subtitle_bottom_padding</item>
+    </style>
+
+    <style name="cardContent" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">@dimen/card_subtitle</item>
+        <item name="android:paddingLeft">@dimen/text_left_and_right_padding</item>
+        <item name="android:paddingRight">@dimen/text_left_and_right_padding</item>
+        <item name="android:paddingTop">@dimen/card_content_bottom_padding</item>
+        <item name="android:paddingBottom">@dimen/card_content_bottom_padding</item>
+        <item name="android:maxLines">3</item>
+    </style>
+
+    <style name="cardAction">
+        <item name="android:textColor">@color/colorAccentDark</item>
+    </style>
+
+    <style name="editText">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_marginStart">@dimen/activity_vertical_margin</item>
+        <item name="android:layout_marginEnd">@dimen/activity_vertical_margin</item>
+        <item name="android:layout_marginTop">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginBottom">@dimen/activity_horizontal_margin</item>
+    </style>
+
+    <!-- Style for normal and sense line item list. -->
+    <style name="listIcon">
+        <item name="android:background">@drawable/shape_oval</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Subhead</item>
+    </style>
+
+    <style name="listIcon.dense">
+        <item name="android:background">@drawable/shape_oval_dense</item>
+        <item name="android:textSize">@dimen/list_item_title_dense</item>
+        <item name="android:layout_marginStart">@dimen/activity_vertical_margin</item>
+    </style>
+
+    <style name="listTitle" parent="TextAppearance.AppCompat.Headline">
+        <item name="android:textSize">@dimen/list_item_title</item>
+        <item name="android:layout_marginStart">@dimen/list_item_text_margin</item>
+        <item name="android:layout_marginEnd">@dimen/activity_vertical_margin</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:scrollHorizontally">false</item>
+    </style>
+
+    <style name="listTitle.dense">
+        <item name="android:textSize">@dimen/list_item_title_dense</item>
+    </style>
+
+    <style name="listSubTitle" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">@dimen/list_item_subtitle</item>
+        <item name="android:layout_marginStart">@dimen/list_item_text_margin</item>
+        <item name="android:layout_marginEnd">@dimen/activity_vertical_margin</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:scrollHorizontally">false</item>
+    </style>
+
+    <style name="listSubTitle.dense">
+        <item name="android:textSize">@dimen/list_item_subtitle_dense</item>
+    </style>
+
+    <style name="listItemMargins">
+        <item name="android:layout_marginStart">@dimen/activity_vertical_margin</item>
+        <item name="android:layout_marginEnd">@dimen/activity_vertical_margin</item>
+    </style>
+
+    <style name="listOptions" parent="TextAppearance.AppCompat.Title">
+        <item name="android:layout_marginEnd">@dimen/activity_vertical_margin</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="listAdditionalInfoRight" parent="listSubTitle.dense">
+        <item name="android:textColor">@color/colorGrey</item>
+        <item name="android:textSize">@dimen/list_item_additional_info_text_size_dense</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+</resources>

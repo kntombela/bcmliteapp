@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/list_item_three_line_dense"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/txt_process_name"
+        style="@style/listTitle.dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:text="@string/process_name"
+        app:layout_constraintRight_toLeftOf="@+id/txt_process_rto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txt_process_number" />
+
+    <TextView
+        android:id="@+id/txt_process_rto"
+        style="@style/listAdditionalInfoRight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/process_rto"
+        app:layout_constraintRight_toLeftOf="@+id/txt_process_options"
+        app:layout_constraintTop_toTopOf="@+id/txt_process_name" />
+
+    <TextView
+        android:id="@+id/txt_process_options"
+        style="@style/listOptions"
+        android:layout_width="@dimen/list_item_options_width"
+        android:layout_height="wrap_content"
+        android:text="@string/list_options"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/txt_process_description"
+        style="@style/listSubTitle.dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:maxLines="2"
+        android:text="@string/process_description"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_process_number"
+        app:layout_constraintEnd_toStartOf="@+id/txt_process_options"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_process_name"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/list_item_text_margin"
+        android:background="@color/colorDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_process_number"
+        style="@style/listIcon.dense"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_oval_dense"
+        android:gravity="center"
+        android:text="@string/process_number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
