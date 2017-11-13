@@ -25,11 +25,11 @@ public class BCMApiClient {
 
 //    public final static String BASE_URL = "http://192.168.8.104/api";
 
-//    public final static String BASE_URL = "http://192.168.248.2/api";
+    public final static String BASE_URL = "http://192.168.248.2/api";
 
 //    public final static String BASE_URL = "http://192.168.43.98/api";
 
-    public final static String BASE_URL = "http://192.168.8.100/api";
+//    public final static String BASE_URL = "http://192.168.8.100/api";
 
     public final static String PATH_ORGANISATIONS = "organisations";
     public final static String PATH_PLANS = "plans";
