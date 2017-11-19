@@ -10,8 +10,10 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.android.bcmliteapp.fragments.FeedbackFragment;
 import com.example.android.bcmliteapp.fragments.GlossaryFragment;
@@ -20,6 +22,7 @@ import com.example.android.bcmliteapp.fragments.HomeFragment;
 import com.example.android.bcmliteapp.fragments.PlanFragment;
 import com.example.android.bcmliteapp.fragments.TeamFragment;
 import com.example.android.bcmliteapp.utils.SharedActivityHelper;
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -30,6 +33,7 @@ public class MainActivity extends AppCompatActivity
     NavigationView mNavigationView;
     private Toolbar mToolbar;
     private CharSequence mTitle;
+    private BottomNavigationViewEx mBottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,6 +147,9 @@ public class MainActivity extends AppCompatActivity
         //Set app navigation drawer
         setupNavigationDrawer();
 
+        //Set bottom navigation
+        setupBottomNavigationView();
+
         //Set home fragment as default loaded fragment
         setHomeFragment(true);
     }
@@ -158,6 +165,18 @@ public class MainActivity extends AppCompatActivity
 
         mNavigationView = (NavigationView) findViewById(R.id.nav_view);
         mNavigationView.setNavigationItemSelectedListener(this);
+    }
+
+    public void setupBottomNavigationView() {
+        //Inflate view and remove default side animation
+        mBottomNavigationView = findViewById(R.id.navigation);
+
+        //Remove default BottomNavigationView behavior
+        mBottomNavigationView.enableAnimation(false);
+        mBottomNavigationView.enableShiftingMode(false);
+        mBottomNavigationView.enableItemShiftingMode(false);
+        mBottomNavigationView.setTextVisibility(false);
+
     }
 
     public void setHomeFragment(boolean isInitialAdd) {

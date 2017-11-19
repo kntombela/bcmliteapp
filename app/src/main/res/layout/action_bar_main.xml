@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/colorTransparent"
-        android:drawableTop="@drawable/ic_home_normal"
+        android:drawableTop="@drawable/ic_home"
         android:paddingTop="16dp" />
 
     <Button
@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/colorTransparent"
-        android:drawableTop="@drawable/ic_plans_normal"
+        android:drawableTop="@drawable/ic_plans"
         android:paddingTop="16dp" />
 
     <Button
