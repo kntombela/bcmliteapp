@@ -21,7 +21,7 @@ import cz.msebera.android.httpclient.Header;
 
 public class BCMApiClient {
 
-    public final static String BASE_URL = "http://192.168.43.42/api";
+//    public final static String BASE_URL = "http://192.168.43.42/api";
 
 //    public final static String BASE_URL = "http://192.168.8.104/api";
 
@@ -30,6 +30,10 @@ public class BCMApiClient {
 //    public final static String BASE_URL = "http://192.168.43.98/api";
 
 //    public final static String BASE_URL = "http://192.168.8.100/api";
+
+    //Abidjan
+    public final static String BASE_URL = "http://10.192.1.107/api";
+
 
     public final static String PATH_ORGANISATIONS = "organisations";
     public final static String PATH_PLANS = "plans";

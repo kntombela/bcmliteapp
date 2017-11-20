@@ -1,7 +1,7 @@
 package com.example.android.bcmliteapp;
 
-import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -10,10 +10,10 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.example.android.bcmliteapp.fragments.FeedbackFragment;
 import com.example.android.bcmliteapp.fragments.GlossaryFragment;
@@ -156,26 +156,22 @@ public class MainActivity extends AppCompatActivity
 
     public void setupNavigationDrawer() {
 
-        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, mDrawer, mToolbar, R.string.navigation_drawer_open,
-                R.string.navigation_drawer_close);
-        mDrawer.addDrawerListener(toggle);
-        toggle.syncState();
-
         mNavigationView = (NavigationView) findViewById(R.id.nav_view);
         mNavigationView.setNavigationItemSelectedListener(this);
     }
 
     public void setupBottomNavigationView() {
-        //Inflate view and remove default side animation
-        mBottomNavigationView = findViewById(R.id.navigation);
-
         //Remove default BottomNavigationView behavior
+        mBottomNavigationView = findViewById(R.id.navigation);
         mBottomNavigationView.enableAnimation(false);
         mBottomNavigationView.enableShiftingMode(false);
         mBottomNavigationView.enableItemShiftingMode(false);
         mBottomNavigationView.setTextVisibility(false);
+        mBottomNavigationView.setOnNavigationItemSelectedListener(
+                new OnBottomNavItemSelectedListener());
+
+        //Assign click listener to bottom navigation drawer toggle
+
 
     }
 
@@ -201,6 +197,9 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void setPlansFragment() {
+        //Synchronize drawer with bottom navigation
+
+
         // Set plans fragment to fragment container in main activity
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.content_frame_main, new PlanFragment())
@@ -268,6 +267,57 @@ public class MainActivity extends AppCompatActivity
 
     public void setDrawerItemChecked() {
         mNavigationView.setCheckedItem(R.id.nav_home);
+    }
+
+    public void setBottomNavItemChecked(int itemId) {
+        mBottomNavigationView.setCurrentItem(itemId);
+    }
+
+    private void onDrawerToggleClick() {
+        //Open and close drawer from bottom navigation item
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            drawer.openDrawer(GravityCompat.START);
+        }
+    }
+
+
+    private class OnBottomNavItemSelectedListener implements BottomNavigationViewEx.OnNavigationItemSelectedListener {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+            // Handle navigation view item clicks here.
+            switch (item.getItemId()) {
+                case R.id.nav_bottom_home:
+                    setHomeFragment(false);
+                    setDrawerItemChecked();
+                    break;
+
+                case R.id.nav_bottom_plans:
+                    setPlansFragment();
+                    break;
+
+                case R.id.nav_bottom_resources:
+                    setResourceFragment();
+                    break;
+
+                case R.id.nav_bottom_glossary:
+                    setGlossaryFragment();
+                    break;
+
+                case R.id.nav_bottom_drawer_toggle:
+                    onDrawerToggleClick();
+                    break;
+
+                default:
+                    setHomeFragment(false);
+
+            }
+
+            return true;
+        }
     }
 
 }
