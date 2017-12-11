@@ -25,7 +25,6 @@ public class ProcessAdapter extends RecyclerView.Adapter<ProcessAdapter.ProcessV
 
     //Member Variables
     private static final String LOG_TAG = ProcessAdapter.class.getSimpleName();
-    int i = 0;
     private PlanProcessesFragment mFragment;
     private ArrayList mData;
     private Process mProcess;

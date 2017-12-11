@@ -1,0 +1,153 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.bcmliteapp.fragments.ReportIncidentFragment">
+
+    <LinearLayout
+        android:id="@+id/tb_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include
+            android:id="@+id/tb_incident"
+            layout="@layout/toolbar_main" />
+    </LinearLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/txt_layout_incident_type"
+        style="@style/editText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tb_container">
+
+        <AutoCompleteTextView
+            android:id="@+id/txt_incident_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/incident_type" />
+    </android.support.design.widget.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/spn_incident_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_layout_incident_type"
+        app:layout_constraintRight_toRightOf="@+id/txt_layout_incident_type"
+        app:layout_constraintTop_toTopOf="@+id/txt_layout_incident_type"
+        app:srcCompat="@drawable/ic_arrow_drop_down" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/txt_layout_incident_date"
+        style="@style/editText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_layout_incident_type">
+
+        <EditText
+            android:id="@+id/txt_incident_date"
+            android:layout_width="201dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/incident_date" />
+    </android.support.design.widget.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/spn_incident_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_layout_incident_date"
+        app:layout_constraintRight_toRightOf="@+id/txt_layout_incident_date"
+        app:layout_constraintTop_toTopOf="@+id/txt_layout_incident_date"
+        app:srcCompat="@drawable/ic_arrow_drop_down" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/txt_layout_incident_time"
+        style="@style/editText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_layout_incident_date"
+        app:layout_constraintLeft_toRightOf="@+id/txt_layout_incident_date"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txt_layout_incident_date">
+
+        <EditText
+            android:id="@+id/txt_incident_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/incident_time" />
+    </android.support.design.widget.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/spn_incident_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_layout_incident_time"
+        app:layout_constraintRight_toRightOf="@+id/txt_layout_incident_time"
+        app:layout_constraintTop_toTopOf="@+id/txt_layout_incident_time"
+        app:srcCompat="@drawable/ic_arrow_drop_down" />
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/txt_layout_incident_location"
+        style="@style/editText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_layout_incident_date">
+
+        <EditText
+            android:id="@+id/txt_incident_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/incident_location" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/txt_layout_incident_description"
+        style="@style/editText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_layout_incident_location">
+
+        <EditText
+            android:id="@+id/txt_incident_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/incident_description"
+            android:inputType="textMultiLine" />
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/lbl_required_fields"
+        style="@style/editText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/title_required_fields"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_layout_incident_description" />
+
+
+</android.support.constraint.ConstraintLayout>

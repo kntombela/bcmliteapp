@@ -197,9 +197,6 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void setPlansFragment() {
-        //Synchronize drawer with bottom navigation
-
-
         // Set plans fragment to fragment container in main activity
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.content_frame_main, new PlanFragment())

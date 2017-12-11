@@ -1,7 +1,9 @@
 package com.example.android.bcmliteapp;
 
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,43 +21,22 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.android.bcmliteapp.fragments.DatePickerFragment;
+import com.example.android.bcmliteapp.fragments.HomeFragment;
+import com.example.android.bcmliteapp.fragments.IncidentFragment;
+import com.example.android.bcmliteapp.fragments.ReportIncidentFragment;
 import com.example.android.bcmliteapp.fragments.TimePickerFragment;
 
 
 public class ReportIncidentActivity extends AppCompatActivity {
 
+    //Member Variables
     private Toolbar mToolbar;
-    private AutoCompleteTextView mTxtType;
-    private EditText mTxtDate;
-    private EditText mTxtTime;
-    private EditText mTxtDescription;
-    private EditText mTxtLocation;
-    private ImageView mBtnType;
-    private ImageView mBtnDate;
-    private ImageView mBtnTime;
-    private TextInputLayout mTxtLayoutType;
-    private TextInputLayout mTxtLayoutDate;
-    private TextInputLayout mTxtLayoutTime;
-    private TextInputLayout mTxtLayoutDescription;
-    private TextInputLayout mTxtLayoutLocation;
-    private View.OnClickListener mIncidentTypeSpnListener = new View.OnClickListener() {
-        public void onClick(View v) {
-            //Show drop down on click
-            mTxtType.showDropDown();
-        }
-    };
-    private View.OnClickListener mTimeBtnListener = new View.OnClickListener() {
-        public void onClick(View v) {
-            //Show time picker dialog
-            DialogFragment newFragment = new TimePickerFragment();
-            newFragment.show(getSupportFragmentManager(), "timePicker");
-        }
-    };
-    private View.OnClickListener mDateBtnListener = new View.OnClickListener() {
-        public void onClick(View v) {
-            //Show date picker dialog
-            DialogFragment newFragment = new DatePickerFragment();
-            newFragment.show(getSupportFragmentManager(), "datePicker");
+    private FloatingActionButton mFabAddIncident;
+    private View.OnClickListener onFabClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            //Replace current fragment with ReportIncidentFragment
+            setReportIncidentFragment();
         }
     };
 
@@ -64,49 +45,8 @@ public class ReportIncidentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report_incident);
 
-        //Set toolbar for activity
-        mToolbar = (Toolbar) findViewById(R.id.tb_incident);
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        //Inflate views
-        mTxtType = (AutoCompleteTextView) findViewById(R.id.txt_incident_type);
-        mTxtDate = (EditText) findViewById(R.id.txt_incident_date);
-        mTxtTime = (EditText) findViewById(R.id.txt_incident_time);
-        mTxtDescription = (EditText) findViewById(R.id.txt_incident_description);
-        mTxtLocation = (EditText) findViewById(R.id.txt_incident_location);
-        mBtnType = (ImageView) findViewById(R.id.spn_incident_type);
-        mBtnDate = (ImageView) findViewById(R.id.spn_incident_date);
-        mBtnTime = (ImageView) findViewById(R.id.spn_incident_time);
-        mTxtLayoutType = (TextInputLayout) findViewById(R.id.txt_layout_incident_type);
-        mTxtLayoutDate = (TextInputLayout) findViewById(R.id.txt_layout_incident_date);
-        mTxtLayoutTime = (TextInputLayout) findViewById(R.id.txt_layout_incident_time);
-        mTxtLayoutDescription = (TextInputLayout) findViewById(R.id.txt_layout_incident_description);
-        mTxtLayoutLocation = (TextInputLayout) findViewById(R.id.txt_layout_incident_location);
-
-        //Set threshold for when autocomplete provides suggestion to user
-        mTxtType.setThreshold(2);
-
-        //Set click listeners for all buttons
-        mBtnType.setOnClickListener(mIncidentTypeSpnListener);
-        mBtnDate.setOnClickListener(mDateBtnListener);
-        mBtnTime.setOnClickListener(mTimeBtnListener);
-
-        //Set change listeners for all textfields
-        mTxtType.addTextChangedListener(new MyTextWatcher(mTxtType));
-        mTxtDate.addTextChangedListener(new MyTextWatcher(mTxtDate));
-        mTxtTime.addTextChangedListener(new MyTextWatcher(mTxtTime));
-        mTxtDescription.addTextChangedListener(new MyTextWatcher(mTxtDescription));
-
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.spinner_incident_type, android.R.layout.simple_spinner_item);
-
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // Apply the adapter to the spinner
-        mTxtType.setAdapter(adapter);
+        //Initialise activity with toolbar and incident list
+        initActivity();
 
     }
 
@@ -124,95 +64,55 @@ public class ReportIncidentActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.menu_item_incident_save:
                 //Submit Incident
-                submitIncident();
+                //submitIncident();
                 return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    private boolean validateField(View view, View viewLayout) {
-        EditText editText = (EditText) view;
-        TextInputLayout textInputLayout = (TextInputLayout) viewLayout;
+    public void initActivity() {
 
-        if (editText.getText().toString().trim().isEmpty()) {
-            textInputLayout.setError(getString(R.string.err_required_fields));
-            requestFocus(view);
-            return false;
+        //Set toolbar for activity
+        setActivityToolbar();
+        //Show list of incidents user already submitted
+        setIncidentFragment(true);
+        //Setup fab button
+        setupAddIncidentFab();
+
+    }
+
+    private void setActivityToolbar() {
+        mToolbar = (Toolbar) findViewById(R.id.tb_incident);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    private void setupAddIncidentFab() {
+        mFabAddIncident = findViewById(R.id.fab_add_incident);
+        mFabAddIncident.setOnClickListener(onFabClickListener);
+    }
+
+    private void setIncidentFragment(boolean isInitialAdd) {
+
+        //Setup fragment transaction
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+        //Determine if incident fragment is already loaded, if not add fragment
+        if (isInitialAdd) {
+            transaction.add(R.id.content_frame_incident, new IncidentFragment()).commit();
         } else {
-            textInputLayout.setErrorEnabled(false);
+            transaction.replace(R.id.content_frame_incident, new IncidentFragment()).commit();
         }
 
-        return true;
     }
 
-    private void submitIncident() {
-        if (!validateForm()) {
-            return;
-        }
-
-        //TODO: Add JSON Post Method
-        Toast.makeText(getApplicationContext(), "Incident Submitted!", Toast.LENGTH_SHORT).show();
-        NavUtils.navigateUpFromSameTask(this);
-    }
-
-    private boolean validateForm() {
-
-        if (!validateField(mTxtType, mTxtLayoutType)) {
-            return false;
-        }
-
-        if (!validateField(mTxtDate, mTxtLayoutDate)) {
-            return false;
-        }
-
-        if (!validateField(mTxtTime, mTxtLayoutTime)) {
-            return false;
-        }
-
-        if (!validateField(mTxtDescription, mTxtLayoutDescription)) {
-            return false;
-        }
-
-        return true;
-    }
-
-    private void requestFocus(View view) {
-        if (view.requestFocus()) {
-            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
-        }
-    }
-
-    private class MyTextWatcher implements TextWatcher {
-
-        private View view;
-
-        private MyTextWatcher(View view) {
-            this.view = view;
-        }
-
-        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-        }
-
-        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-        }
-
-        public void afterTextChanged(Editable editable) {
-            switch (view.getId()) {
-                case R.id.txt_incident_type:
-                    validateField(view, mTxtLayoutType);
-                    break;
-                case R.id.txt_incident_date:
-                    validateField(view, mTxtLayoutDate);
-                    break;
-                case R.id.txt_incident_time:
-                    validateField(view, mTxtLayoutTime);
-                    break;
-                case R.id.txt_incident_description:
-                    validateField(view, mTxtLayoutDescription);
-                    break;
-            }
-        }
+    private void setReportIncidentFragment() {
+        // Set incident fragment to fragment container in main activity
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.content_frame_incident, new ReportIncidentFragment())
+                .addToBackStack(null)
+                .commit();
     }
 
 }
