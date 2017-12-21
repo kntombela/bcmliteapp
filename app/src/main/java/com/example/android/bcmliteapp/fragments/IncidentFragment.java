@@ -10,6 +10,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -48,6 +50,7 @@ public class IncidentFragment extends Fragment {
         public void onErrorResponse(VolleyError error) {
 
             //Close progress bar
+            Log.i(LOG_TAG, "Progress Bar Closed");
             ProgressBarUtil.closeProgressBar();
 
             //Print response to error log
@@ -99,6 +102,9 @@ public class IncidentFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         mIncidentList.setLayoutManager(layoutManager);
 
+        //Let fragment control the menu
+        setHasOptionsMenu(true);
+
         //Create new Volley requestQueue to retrieve data
         mRequestQueue = Volley.newRequestQueue(getContext());
 
@@ -108,6 +114,7 @@ public class IncidentFragment extends Fragment {
         mGson = gsonBuilder.create();
 
         //Show progress bar
+        Log.i(LOG_TAG, "Progress Bar Shown");
         ProgressBarUtil.showProgressBar(getContext());
 
         //Get list of incidents
@@ -115,6 +122,13 @@ public class IncidentFragment extends Fragment {
         getIncidents(1);
 
         return rootView;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        //Hide Save menuItem for IncidentFragment
+        menu.findItem(R.id.menu_item_incident_save).setVisible(false);
     }
 
     public void onItemClick(int position) {
@@ -130,5 +144,4 @@ public class IncidentFragment extends Fragment {
 
         mRequestQueue.add(request);
     }
-
 }

@@ -29,7 +29,7 @@
             android:name=".ProcessDetailDialogActivity"
             android:parentActivityName=".PlanDetailActivity" />
         <activity
-            android:name=".ReportIncidentActivity"
+            android:name=".IncidentActivity"
             android:label="@string/report_incident"
             android:parentActivityName=".MainActivity" />
         <activity

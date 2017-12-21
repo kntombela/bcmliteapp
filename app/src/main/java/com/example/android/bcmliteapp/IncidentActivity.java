@@ -1,33 +1,20 @@
 package com.example.android.bcmliteapp;
 
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.TextInputLayout;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.example.android.bcmliteapp.fragments.DatePickerFragment;
-import com.example.android.bcmliteapp.fragments.HomeFragment;
 import com.example.android.bcmliteapp.fragments.IncidentFragment;
 import com.example.android.bcmliteapp.fragments.ReportIncidentFragment;
-import com.example.android.bcmliteapp.fragments.TimePickerFragment;
 
 
-public class ReportIncidentActivity extends AppCompatActivity {
+public class IncidentActivity extends AppCompatActivity
+        implements ReportIncidentFragment.OnIncidentSubmittedListener {
 
     //Member Variables
     private Toolbar mToolbar;
@@ -43,7 +30,7 @@ public class ReportIncidentActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_report_incident);
+        setContentView(R.layout.activity_incident);
 
         //Initialise activity with toolbar and incident list
         initActivity();
@@ -52,7 +39,6 @@ public class ReportIncidentActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         // Inflate the toolbar menu
         getMenuInflater().inflate(R.menu.activity_incident, menu);
         return true;
@@ -61,24 +47,23 @@ public class ReportIncidentActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch (item.getItemId()) {
-            case R.id.menu_item_incident_save:
-                //Submit Incident
-                //submitIncident();
-                return true;
-        }
-
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onIncidentSubmitted() {
+        setIncidentFragment(false);
     }
 
     public void initActivity() {
 
         //Set toolbar for activity
         setActivityToolbar();
-        //Show list of incidents user already submitted
-        setIncidentFragment(true);
         //Setup fab button
         setupAddIncidentFab();
+        //Show list of incidents user already submitted
+        setIncidentFragment(true);
+
 
     }
 
@@ -93,7 +78,7 @@ public class ReportIncidentActivity extends AppCompatActivity {
         mFabAddIncident.setOnClickListener(onFabClickListener);
     }
 
-    private void setIncidentFragment(boolean isInitialAdd) {
+    public void setIncidentFragment(boolean isInitialAdd) {
 
         //Setup fragment transaction
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -105,6 +90,12 @@ public class ReportIncidentActivity extends AppCompatActivity {
             transaction.replace(R.id.content_frame_incident, new IncidentFragment()).commit();
         }
 
+        //Rename activity toolbar
+        setTitle("Incidents");
+
+        //Show fab
+        showFab(true);
+
     }
 
     private void setReportIncidentFragment() {
@@ -113,6 +104,22 @@ public class ReportIncidentActivity extends AppCompatActivity {
                 .replace(R.id.content_frame_incident, new ReportIncidentFragment())
                 .addToBackStack(null)
                 .commit();
+
+        //Rename activity toolbar
+        setTitle("Report Incident");
+
+        //Hide fab
+        showFab(false);
+
     }
 
+    private void showFab(boolean show) {
+
+        //Determine if fab is shown for toggle between incident list and report incident
+        if (!show) {
+            mFabAddIncident.hide();
+        } else {
+            mFabAddIncident.show();
+        }
+    }
 }

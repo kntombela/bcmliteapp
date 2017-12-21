@@ -1,6 +1,7 @@
 package com.example.android.bcmliteapp.fragments;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.design.widget.TextInputLayout;
@@ -10,6 +11,9 @@ import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -19,8 +23,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.android.bcmliteapp.IncidentActivity;
 import com.example.android.bcmliteapp.R;
-import com.example.android.bcmliteapp.ReportIncidentActivity;
+import com.example.android.bcmliteapp.models.IncidentType;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -42,6 +47,7 @@ public class ReportIncidentFragment extends Fragment {
     private TextInputLayout mTxtLayoutTime;
     private TextInputLayout mTxtLayoutDescription;
     private TextInputLayout mTxtLayoutLocation;
+    private OnIncidentSubmittedListener mIncidentSubmittedListener;
     private View.OnClickListener mIncidentTypeSpnListener = new View.OnClickListener() {
         public void onClick(View v) {
             //Show drop down on click
@@ -73,6 +79,9 @@ public class ReportIncidentFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_report_incident,
                 container, false);
+
+        //Let fragment control the menu
+        setHasOptionsMenu(true);
 
         //Inflate views
         mTxtType = (AutoCompleteTextView) rootView.findViewById(R.id.txt_incident_type);
@@ -106,16 +115,43 @@ public class ReportIncidentFragment extends Fragment {
         mTxtDescription.addTextChangedListener(new MyTextWatcher(mTxtDescription));
 
         // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
-                R.array.spinner_incident_type, android.R.layout.simple_spinner_item);
-
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<IncidentType> adapter2 = new ArrayAdapter<IncidentType>(getActivity(),
+                android.R.layout.simple_spinner_dropdown_item, IncidentType.values());
 
         // Apply the adapter to the spinner
-        mTxtType.setAdapter(adapter);
+        mTxtType.setAdapter(adapter2);
 
         return rootView;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        //Show Save menuItem for ReportIncidentFragment
+        menu.findItem(R.id.menu_item_incident_save).setVisible(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_item_incident_save:
+                //Submit Incident
+                submitIncident();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        try {
+            mIncidentSubmittedListener = (OnIncidentSubmittedListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString() + " must implement OnIncidentSubmittedListener");
+        }
+
     }
 
     private boolean validateField(View view, View viewLayout) {
@@ -140,8 +176,9 @@ public class ReportIncidentFragment extends Fragment {
 
         //TODO: Add JSON Post Method
         Toast.makeText(getContext(), "Incident Submitted!", Toast.LENGTH_SHORT).show();
-        //TODO: Reload Incident List Fragment
-        //NavUtils.navigateUpFromSameTask(this);
+        //Reload Incident List Fragment
+        mIncidentSubmittedListener.onIncidentSubmitted();
+
     }
 
     private boolean validateForm() {
@@ -170,6 +207,10 @@ public class ReportIncidentFragment extends Fragment {
             getActivity().getWindow().setSoftInputMode(
                     WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         }
+    }
+
+    public interface OnIncidentSubmittedListener {
+        public void onIncidentSubmitted();
     }
 
     private class MyTextWatcher implements TextWatcher {

@@ -35,7 +35,7 @@ public class BCMApiClient {
 
     public final static String BASE_URL = "http://192.168.43.42/api";
 
-//    public final static String BASE_URL = "http://192.168.8.104/api";
+//    public final static String BASE_URL = "http://192.168.8.100/api";
 
 //    public final static String BASE_URL = "http://192.168.248.2/api";
 
